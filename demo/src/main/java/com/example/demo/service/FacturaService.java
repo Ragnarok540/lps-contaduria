@@ -5,8 +5,10 @@ import com.example.demo.bean.RegistroCuenta;
 
 public interface FacturaService {
 
-	public RegistroCuenta registrarCompra(Factura factura);
+	public RegistroCuenta registrarCompraGasto(Factura factura, String descripcion);
 	
-	public RegistroCuenta registrarVenta(Factura factura);
+	public RegistroCuenta registrarCompraCosto(Factura factura, String descripcion);
+		
+	public RegistroCuenta registrarVenta(Factura factura, String descripcion);
 	
 }
