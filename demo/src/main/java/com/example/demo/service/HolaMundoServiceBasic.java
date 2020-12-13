@@ -7,7 +7,7 @@ public class HolaMundoServiceBasic implements HolaMundoService {
 
 	@Override
 	public void holaMundo() {
-		System.out.print("Hola Mundo");
+		System.out.print("Hola Mundo2");
 		
 	}
 
