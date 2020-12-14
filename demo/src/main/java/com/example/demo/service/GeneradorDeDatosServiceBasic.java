@@ -21,15 +21,11 @@ public class GeneradorDeDatosServiceBasic implements GeneradorDeDatosService {
 
 	@Override
 	public void registrarDatosPruebas(String nombreProducto) {
-		
-		System.out.print("entro al generador");
-		
 		if (nombreProducto == "MicroEmpresa") {
-			 datosMicroEmpresa();
+			datosMicroEmpresa();
 		} else if (nombreProducto == "Personal") {
 			datosPersonal();
-		}
-		
+		}	
 	}
 	
 	private void datosMicroEmpresa() {

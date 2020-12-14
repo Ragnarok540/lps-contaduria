@@ -8,7 +8,9 @@ public class Balance {
 	private Date fechaFin;
 	private double patrimonio;
 
-	public Balance(Date fechaInicio, Date fechaFin, double patrimonio) {
+	public Balance(Date fechaInicio,
+			       Date fechaFin,
+			       double patrimonio) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.patrimonio = patrimonio;

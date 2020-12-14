@@ -10,7 +10,11 @@ public class DeclaracionDeRenta {
 	private double anticipo;
 	private double saldoFavor;
 
-	public DeclaracionDeRenta(Date fechaInicio, Date fechaFin, double saldoPagar, double anticipo, double saldoFavor) {
+	public DeclaracionDeRenta(Date fechaInicio,
+			                  Date fechaFin,
+			                  double saldoPagar,
+			                  double anticipo,
+			                  double saldoFavor) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.saldoPagar = saldoPagar;

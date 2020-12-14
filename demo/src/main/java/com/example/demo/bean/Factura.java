@@ -12,7 +12,16 @@ public class Factura {
 	private String medioDePago;
 	private double reteFuente;
 	
-	public Factura(String codigo, Date fecha, double valor, String tipo, double iva, String medioDePago, double reteFuente) {
+	public Factura() {}
+	
+	public Factura(String codigo,
+			       Date fecha,
+			       double valor,
+			       String tipo,
+			       double iva,
+			       String medioDePago,
+			       double reteFuente) {
+		this.codigo = codigo;
 		this.fecha = fecha;
 		this.valor = valor;
 		this.tipo = tipo;

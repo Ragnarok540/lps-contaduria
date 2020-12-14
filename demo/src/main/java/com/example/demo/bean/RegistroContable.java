@@ -10,7 +10,11 @@ public class RegistroContable {
 	private String tipo;
 	private double valor;
 	
-	public RegistroContable(String descripcion, String nombre, Date fecha, String tipo, double valor) {
+	public RegistroContable(String descripcion,
+			                String nombre,
+			                Date fecha,
+			                String tipo,
+			                double valor) {
 		this.descripcion = descripcion;
 		this.nombre = nombre;
 		this.fecha = fecha;

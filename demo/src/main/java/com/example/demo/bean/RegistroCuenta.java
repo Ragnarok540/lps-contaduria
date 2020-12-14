@@ -10,7 +10,11 @@ public class RegistroCuenta {
 	private String tipo;
 	private double valor;
 	
-	public RegistroCuenta(String descripcion, String factura, Date fecha, String tipo, double valor) {
+	public RegistroCuenta(String descripcion,
+			              String factura,
+			              Date fecha,
+			              String tipo,
+			              double valor) {
 		this.descripcion = descripcion;
 		this.factura = factura;
 		this.fecha = fecha;

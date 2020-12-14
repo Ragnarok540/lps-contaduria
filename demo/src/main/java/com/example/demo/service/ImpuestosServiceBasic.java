@@ -3,18 +3,27 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.example.demo.bean.BaseDeDatos;
 import com.example.demo.bean.DeclaracionDeRenta;
 import com.example.demo.bean.Factura;
-import com.example.demo.bean.RegistroContable;
+import com.example.demo.bean.RegistroCuenta;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class ImpuestosServiceBasic implements ImpuestosService {
 
+	BaseDeDatos baseDeDatos;
+	
+	public ImpuestosServiceBasic(BaseDeDatos baseDeDatos) {
+		this.baseDeDatos = baseDeDatos;
+	}
+	
 	@Override
-	public double calcularIva(ArrayList<Factura> facturas, Date fechaInicio, Date fechaFin) {
+	public double calcularIva(Date fechaInicio, Date fechaFin) {
 		double ivaAcumulado = 0;
+		
+		ArrayList<Factura> facturas = baseDeDatos.getFacturas();
 		
 		for (Factura fact: facturas) {
 			
@@ -28,8 +37,10 @@ public class ImpuestosServiceBasic implements ImpuestosService {
 	}
 
 	@Override
-	public double calcularRetefuente(ArrayList<Factura> facturas, Date fechaInicio, Date fechaFin) {
+	public double calcularRetefuente(Date fechaInicio, Date fechaFin) {
 		double reteFuenteAcumulado = 0;
+		
+		ArrayList<Factura> facturas = baseDeDatos.getFacturas();
 		
 		for (Factura fact: facturas) {
 			
@@ -43,7 +54,10 @@ public class ImpuestosServiceBasic implements ImpuestosService {
 	}
 
 	@Override
-	public DeclaracionDeRenta generarDeclaracionDeRenta(ArrayList<RegistroContable> registros) {
+	public DeclaracionDeRenta generarDeclaracionDeRenta() {
+		
+		ArrayList<RegistroCuenta> registros = baseDeDatos.getRegistrosCuenta();
+		
 		// TODO Auto-generated method stub
 		
 		// ingresos - intereses hipotecarios - gastos = base gravable if menos de (35 millones) else base gravable por * 33%

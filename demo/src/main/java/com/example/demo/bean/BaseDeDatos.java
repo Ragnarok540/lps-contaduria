@@ -8,12 +8,14 @@ import org.springframework.stereotype.Service;
 public class BaseDeDatos {
 
 	private ArrayList<Factura> facturas;	
-	private ArrayList<RegistroContable> registros;
+	private ArrayList<RegistroContable> registrosContables;
 	private ArrayList<RegistroCuenta> registrosCuenta;
 	
-	public BaseDeDatos(ArrayList<Factura> facturas, ArrayList<RegistroContable> registros, ArrayList<RegistroCuenta> registrosCuenta) {
+	public BaseDeDatos(ArrayList<Factura> facturas,
+			           ArrayList<RegistroContable> registrosContables, 
+			           ArrayList<RegistroCuenta> registrosCuenta) {
 		this.facturas = facturas;
-		this.registros = registros;
+		this.registrosContables = registrosContables;
 		this.registrosCuenta = registrosCuenta;
 	}
 
@@ -25,12 +27,12 @@ public class BaseDeDatos {
 		this.facturas = facturas;
 	}
 
-	public ArrayList<RegistroContable> getRegistros() {
-		return registros;
+	public ArrayList<RegistroContable> getRegistrosContables() {
+		return registrosContables;
 	}
 
-	public void setRegistros(ArrayList<RegistroContable> registros) {
-		this.registros = registros;
+	public void setRegistrosContables(ArrayList<RegistroContable> registrosContables) {
+		this.registrosContables = registrosContables;
 	}
 
 	public ArrayList<RegistroCuenta> getRegistrosCuenta() {

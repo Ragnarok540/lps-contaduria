@@ -26,7 +26,7 @@ public class RegistroContableServiceBasic implements RegistroContableService {
 		
 		RegistroContable registroContable = new RegistroContable(descripcion, nombre, fecha, tipo, valor);
 		
-		baseDeDatos.getRegistros().add(registroContable);
+		baseDeDatos.getRegistrosContables().add(registroContable);
 		
 		return registroContable;
 	}
@@ -40,7 +40,7 @@ public class RegistroContableServiceBasic implements RegistroContableService {
 		
 		RegistroContable registroContable = new RegistroContable(descripcion, nombre, fecha, tipo, valor);
 		
-		baseDeDatos.getRegistros().add(registroContable);
+		baseDeDatos.getRegistrosContables().add(registroContable);
 		
 		return registroContable;
 	}
