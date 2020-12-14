@@ -6,6 +6,7 @@ import java.util.Date;
 import com.example.demo.bean.BaseDeDatos;
 import com.example.demo.bean.DeclaracionDeRenta;
 import com.example.demo.bean.Factura;
+import com.example.demo.bean.RegistroContable;
 import com.example.demo.bean.RegistroCuenta;
 
 import org.springframework.stereotype.Service;
@@ -26,11 +27,9 @@ public class ImpuestosServiceBasic implements ImpuestosService {
 		ArrayList<Factura> facturas = baseDeDatos.getFacturas();
 		
 		for (Factura fact: facturas) {
-			
 			if (fact.getFecha().after(fechaInicio) && fact.getFecha().before(fechaFin)) {
 				ivaAcumulado += fact.getIva();
 			} 
-
 		}
 		
 		return ivaAcumulado;
@@ -43,28 +42,40 @@ public class ImpuestosServiceBasic implements ImpuestosService {
 		ArrayList<Factura> facturas = baseDeDatos.getFacturas();
 		
 		for (Factura fact: facturas) {
-			
 			if (fact.getFecha().after(fechaInicio) && fact.getFecha().before(fechaFin)) {
 				reteFuenteAcumulado += fact.getReteFuente();
 			} 
-
 		}
 		
 		return reteFuenteAcumulado;
 	}
 
 	@Override
-	public DeclaracionDeRenta generarDeclaracionDeRenta() {
-		
+	public DeclaracionDeRenta generarDeclaracionDeRenta(Date fechaInicio, Date fechaFin) {
 		ArrayList<RegistroCuenta> registros = baseDeDatos.getRegistrosCuenta();
 		
-		// TODO Auto-generated method stub
+		double ingresosAcumulados = 0;
+		double gastosAcumulados = 0;
 		
-		// ingresos - intereses hipotecarios - gastos = base gravable if menos de (35 millones) else base gravable por * 33%
-		// 
-		// 
+		for (RegistroCuenta reg: registros) {
+			if (reg.getFecha().after(fechaInicio) && reg.getFecha().before(fechaFin)) {
+				if (reg.getTipo() == "ingreso") {
+					ingresosAcumulados += reg.getValor();
+				} else if (reg.getTipo() == "gasto") {
+					gastosAcumulados += reg.getValor();
+				}
+			} 
+		}
 		
-		return null;
+		double baseGravable = ingresosAcumulados /* - interesesHipotecarios */ - gastosAcumulados;
+				
+		double saldoPagar = 0;
+		
+		if (ingresosAcumulados > 35000000) {
+			saldoPagar = baseGravable * 0.33;
+		} 
+				
+		return new DeclaracionDeRenta(fechaInicio, fechaFin, saldoPagar);
 	}
 
 }

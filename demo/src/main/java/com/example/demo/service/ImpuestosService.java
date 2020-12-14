@@ -10,6 +10,6 @@ public interface ImpuestosService {
 	
 	public double calcularRetefuente(Date fechaInicio, Date fechaFin);
 	
-	public DeclaracionDeRenta generarDeclaracionDeRenta();
+	public DeclaracionDeRenta generarDeclaracionDeRenta(Date fechaInicio, Date fechaFin);
 	
 }

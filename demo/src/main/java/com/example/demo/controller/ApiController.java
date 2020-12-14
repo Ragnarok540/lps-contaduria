@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.Balance;
 import com.example.demo.bean.BaseDeDatos;
+import com.example.demo.bean.DeclaracionDeRenta;
 import com.example.demo.bean.Factura;
 import com.example.demo.bean.RegistroContable;
 import com.example.demo.bean.RegistroCuenta;
 import com.example.demo.service.FacturaService;
+import com.example.demo.service.ImpuestosService;
 import com.example.demo.service.RegistroContableService;
 import com.example.demo.service.RegistroCuentaService;
 
@@ -23,14 +25,18 @@ public class ApiController {
 	FacturaService facturaService;
 	RegistroCuentaService registroCuentaService;
 	RegistroContableService registroContableService;
+	ImpuestosService impuestosService;
 
 	public ApiController(BaseDeDatos baseDeDatos,
 			             FacturaService facturaService,
 			             RegistroCuentaService registroCuentaService,
-			             RegistroContableService registroContableService) {
+			             RegistroContableService registroContableService,
+			             ImpuestosService impuestosService) {
 		this.baseDeDatos = baseDeDatos;
 		this.facturaService = facturaService;
+		this.registroCuentaService = registroCuentaService;
 		this.registroContableService = registroContableService;
+		this.impuestosService = impuestosService;
 	}
 
 	// RQ02
@@ -91,6 +97,24 @@ public class ApiController {
 	Balance balance(@RequestBody Balance balance) {
 		return registroContableService.calcularBalance(balance.getFechaInicio(), balance.getFechaFin());
 	}
+	
+	// RQ12
+	@PostMapping("/iva")
+	double iva(@RequestBody Balance balance) {
+		return impuestosService.calcularIva(balance.getFechaInicio(), balance.getFechaFin());
+	}
+	
+	// RQ14
+	@PostMapping("/retefuente")
+	double retefuente(@RequestBody Balance balance) {
+		return impuestosService.calcularRetefuente(balance.getFechaInicio(), balance.getFechaFin());
+	}
+	
+	// RQ16
+	@PostMapping("/declaracion")
+	DeclaracionDeRenta declaracion(@RequestBody Balance balance) {
+		return impuestosService.generarDeclaracionDeRenta(balance.getFechaInicio(), balance.getFechaFin());
+	}	
 	
 	@GetMapping("/db")
 	BaseDeDatos db() {

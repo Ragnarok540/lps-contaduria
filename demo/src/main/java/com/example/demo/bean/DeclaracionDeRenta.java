@@ -7,21 +7,15 @@ public class DeclaracionDeRenta {
 	private Date fechaInicio;
 	private Date fechaFin;
 	private double saldoPagar;
-	private double anticipo;
-	private double saldoFavor;
 
 	public DeclaracionDeRenta() {}
 	
 	public DeclaracionDeRenta(Date fechaInicio,
 			                  Date fechaFin,
-			                  double saldoPagar,
-			                  double anticipo,
-			                  double saldoFavor) {
+			                  double saldoPagar) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.saldoPagar = saldoPagar;
-		this.anticipo = anticipo;
-		this.saldoFavor = saldoFavor;
 	}
 
 	public Date getFechaInicio() {
@@ -46,22 +40,6 @@ public class DeclaracionDeRenta {
 
 	public void setSaldoPagar(double saldoPagar) {
 		this.saldoPagar = saldoPagar;
-	}
-
-	public double getAnticipo() {
-		return anticipo;
-	}
-
-	public void setAnticipo(double anticipo) {
-		this.anticipo = anticipo;
-	}
-
-	public double getSaldoFavor() {
-		return saldoFavor;
-	}
-
-	public void setSaldoFavor(double saldoFavor) {
-		this.saldoFavor = saldoFavor;
 	}
 	
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.bean.Balance;
 import com.example.demo.bean.BaseDeDatos;
-import com.example.demo.bean.Factura;
 import com.example.demo.bean.RegistroContable;
 import com.example.demo.bean.RegistroCuenta;
 
