@@ -10,6 +10,8 @@ public class RegistroContable {
 	private String tipo;
 	private double valor;
 	
+	public RegistroContable() {}
+	
 	public RegistroContable(String descripcion,
 			                String nombre,
 			                Date fecha,

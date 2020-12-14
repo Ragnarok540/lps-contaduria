@@ -3,11 +3,15 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.bean.Balance;
 import com.example.demo.bean.BaseDeDatos;
+import com.example.demo.bean.Factura;
 import com.example.demo.bean.RegistroContable;
 import com.example.demo.bean.RegistroCuenta;
 
+@Service
 public class RegistroContableServiceBasic implements RegistroContableService {
 	
 	private BaseDeDatos baseDeDatos;
@@ -46,14 +50,26 @@ public class RegistroContableServiceBasic implements RegistroContableService {
 	}
 
 	@Override
-	public Balance calcularBalance(ArrayList<RegistroContable> registros) {
-		// TODO Auto-generated method stub
+	public Balance calcularBalance(Date fechaInicio, Date fechaFin) {
 		
-		// calcular el patrimonio
+		ArrayList<RegistroContable> registros = baseDeDatos.getRegistrosContables();
 		
-		// activo - pasivo = patrimonio
+		double pasivosAcumulados = 0;
+		double activosAcumulados = 0;
 		
-		return null;
+		for (RegistroContable reg: registros) {
+			if (reg.getFecha().after(fechaInicio) && reg.getFecha().before(fechaFin)) {
+				if (reg.getTipo() == "activo") {
+					activosAcumulados += reg.getValor();
+				} else if (reg.getTipo() == "pasivo") {
+					pasivosAcumulados += reg.getValor();
+				}
+			} 
+		}
+		
+		double patrimonio = activosAcumulados - pasivosAcumulados;
+		
+		return new Balance(fechaInicio, fechaFin, patrimonio);
 	}
 
 	

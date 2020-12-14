@@ -8,6 +8,8 @@ public class Balance {
 	private Date fechaFin;
 	private double patrimonio;
 
+	public Balance() {}
+	
 	public Balance(Date fechaInicio,
 			       Date fechaFin,
 			       double patrimonio) {

@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import java.util.ArrayList;
+import java.util.Date;
 
 import com.example.demo.bean.Balance;
 import com.example.demo.bean.RegistroContable;
@@ -12,6 +12,6 @@ public interface RegistroContableService {
 	
 	public RegistroContable registrarActivo(RegistroCuenta registroCuenta, String nombre);
 	
-	public Balance calcularBalance(ArrayList<RegistroContable> registros); 
+	public Balance calcularBalance(Date fechaInicio, Date fechaFin); 
 	
 }

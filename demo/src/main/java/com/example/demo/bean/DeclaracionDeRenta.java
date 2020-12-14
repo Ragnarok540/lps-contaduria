@@ -10,6 +10,8 @@ public class DeclaracionDeRenta {
 	private double anticipo;
 	private double saldoFavor;
 
+	public DeclaracionDeRenta() {}
+	
 	public DeclaracionDeRenta(Date fechaInicio,
 			                  Date fechaFin,
 			                  double saldoPagar,
