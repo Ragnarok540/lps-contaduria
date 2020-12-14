@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.example.demo.bean.Balance;
+import com.example.demo.bean.BaseDeDatos;
 import com.example.demo.bean.RegistroContable;
 import com.example.demo.bean.RegistroCuenta;
 
 public class RegistroContableServiceBasic implements RegistroContableService {
+	
+	private BaseDeDatos baseDeDatos;
+	
+	public RegistroContableServiceBasic(BaseDeDatos baseDeDatos) {
+		this.baseDeDatos = baseDeDatos;
+	}
 
 	@Override
 	public RegistroContable registrarPasivo(RegistroCuenta registroCuenta, String nombre) {
@@ -18,6 +25,8 @@ public class RegistroContableServiceBasic implements RegistroContableService {
 		double valor = registroCuenta.getValor();
 		
 		RegistroContable registroContable = new RegistroContable(descripcion, nombre, fecha, tipo, valor);
+		
+		baseDeDatos.getRegistros().add(registroContable);
 		
 		return registroContable;
 	}
@@ -31,12 +40,19 @@ public class RegistroContableServiceBasic implements RegistroContableService {
 		
 		RegistroContable registroContable = new RegistroContable(descripcion, nombre, fecha, tipo, valor);
 		
+		baseDeDatos.getRegistros().add(registroContable);
+		
 		return registroContable;
 	}
 
 	@Override
 	public Balance calcularBalance(ArrayList<RegistroContable> registros) {
 		// TODO Auto-generated method stub
+		
+		// calcular el patrimonio
+		
+		// activo - pasivo = patrimonio
+		
 		return null;
 	}
 

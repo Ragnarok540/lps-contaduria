@@ -7,6 +7,9 @@ import com.example.demo.bean.DeclaracionDeRenta;
 import com.example.demo.bean.Factura;
 import com.example.demo.bean.RegistroContable;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ImpuestosServiceBasic implements ImpuestosService {
 
 	@Override
@@ -42,6 +45,11 @@ public class ImpuestosServiceBasic implements ImpuestosService {
 	@Override
 	public DeclaracionDeRenta generarDeclaracionDeRenta(ArrayList<RegistroContable> registros) {
 		// TODO Auto-generated method stub
+		
+		// ingresos - intereses hipotecarios - gastos = base gravable if menos de (35 millones) else base gravable por * 33%
+		// 
+		// 
+		
 		return null;
 	}
 

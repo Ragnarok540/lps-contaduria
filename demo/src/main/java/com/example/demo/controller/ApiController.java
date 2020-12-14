@@ -6,37 +6,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.bean.Operations;
-import com.example.demo.service.OperationsService;
+import com.example.demo.bean.BaseDeDatos;
+
 
 @RestController
 public class ApiController {
+	
+	
 
-	OperationsService operationsService;
+	BaseDeDatos baseDeDatos;
 
-	public ApiController(OperationsService operationsService) {
-		this.operationsService = operationsService;
+	public ApiController(BaseDeDatos baseDeDatos) {
+		this.baseDeDatos = baseDeDatos;
 	}
-
-	@PostMapping("/calculadora/sumar")
-	Operations sumar(@RequestBody Operations operations) {
-		return operationsService.sumarEnteros(operations);
-	}
-
-	@PostMapping("/calculadora/restar")
-	Operations restar(@RequestBody Operations operations) {
-		return operationsService.restarEnteros(operations);
-	}
-
-	@PostMapping("/calculadora/multiplicar")
-	Operations multiplicar(@RequestBody Operations operations) {
-		return operationsService.multiplicarEnteros(operations);
-	}
-
-	@GetMapping("/calculadora/dividir")
-	Operations dividir(@RequestParam int operation1, @RequestParam int operation2) {
-
-		return operationsService.dividirEnteros(operation1, operation2);
+//
+//	@PostMapping("/calculadora/sumar")
+//	Operations sumar(@RequestBody Operations operations) {
+//		return operationsService.sumarEnteros(operations);
+//	}
+//
+//	@PostMapping("/calculadora/restar")
+//	Operations restar(@RequestBody Operations operations) {
+//		return operationsService.restarEnteros(operations);
+//	}
+//
+//	@PostMapping("/calculadora/multiplicar")
+//	Operations multiplicar(@RequestBody Operations operations) {
+//		return operationsService.multiplicarEnteros(operations);
+//	}
+//
+	@GetMapping("/db")
+	BaseDeDatos db() {
+		return baseDeDatos;
 	}
 
 }
