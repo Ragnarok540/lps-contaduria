@@ -1,13 +1,13 @@
 package com.example.demo.service;
 
-import com.example.demo.bean.Factura;
+import com.example.demo.bean.RegistroCuenta;
 
 public interface RegistroCuentaService {
 
-	public boolean registrarCosto(Factura factura, String descripcion);
+	public boolean registrarCosto(RegistroCuenta registroCuenta);
 	
-	public boolean registrarGasto(Factura factura, String descripcion);
+	public boolean registrarGasto(RegistroCuenta registroCuenta);
 	
-	public boolean registrarIngreso(Factura factura, String descripcion);
+	public boolean registrarIngreso(RegistroCuenta registroCuenta);
 	
 }

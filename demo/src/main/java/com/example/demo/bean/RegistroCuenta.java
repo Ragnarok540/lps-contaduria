@@ -10,6 +10,8 @@ public class RegistroCuenta {
 	private String tipo;
 	private double valor;
 	
+	public RegistroCuenta() {}
+	
 	public RegistroCuenta(String descripcion,
 			              String factura,
 			              Date fecha,
