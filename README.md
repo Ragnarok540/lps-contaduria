@@ -2,13 +2,13 @@
 
 Demo del proyecto del curso líneas de productos.
 
-Fue realizado en el lenguaje Java usado el Framework Spring. 
+Fue desarrollado en el lenguaje Java usado el Framework Spring. 
 
-El código fuente se encuentra en esta [ruta](https://github.com/Ragnarok540/lps-contaduria/tree/main/demo/src/main/java/com/example/demo).
+El código fuente se encuentra en ésta [ruta](https://github.com/Ragnarok540/lps-contaduria/tree/main/demo/src/main/java/com/example/demo).
 
 ## Componentes del Dominio Implementados
 
-Los componentes del dominio fueron implemenmtados como [servicios](https://github.com/Ragnarok540/lps-contaduria/tree/main/demo/src/main/java/com/example/demo/service) de Spring y para acceder a estos se ofrece un [API REST](https://github.com/Ragnarok540/lps-contaduria/blob/main/demo/src/main/java/com/example/demo/controller/ApiController.java).
+Los componentes del dominio fueron implementados como [servicios](https://github.com/Ragnarok540/lps-contaduria/tree/main/demo/src/main/java/com/example/demo/service) de Spring y para acceder a estos (vistas) se ofrece un [API REST](https://github.com/Ragnarok540/lps-contaduria/blob/main/demo/src/main/java/com/example/demo/controller/ApiController.java). Para el modelo se usaron [Java Beans](https://github.com/Ragnarok540/lps-contaduria/tree/main/demo/src/main/java/com/example/demo/bean).
 
 - __RQ02__ - Facturas de Compra
 - __RQ03__ - Facturas de Venta
