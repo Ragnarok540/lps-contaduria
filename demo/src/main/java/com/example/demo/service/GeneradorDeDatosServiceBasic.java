@@ -6,22 +6,35 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.bean.BaseDeDatos;
 import com.example.demo.bean.Factura;
+import com.example.demo.bean.Propiedades;
 import com.example.demo.bean.RegistroCuenta;
 
 @Service
 public class GeneradorDeDatosServiceBasic implements GeneradorDeDatosService {
 
 	BaseDeDatos baseDeDatos;
-	
-	public GeneradorDeDatosServiceBasic(BaseDeDatos baseDeDatos) {
+	Propiedades propiedades;
+	FacturaService facturaService;
+	RegistroContableService registroContableService;
+		
+	public GeneradorDeDatosServiceBasic(BaseDeDatos baseDeDatos,
+			                            Propiedades propiedades,
+			                            FacturaService facturaService,
+			                            RegistroContableService registroContableService) {
 		this.baseDeDatos = baseDeDatos;
+		this.propiedades = propiedades;
+		this.facturaService = facturaService;
+		this.registroContableService = registroContableService;
 	}
 
 	@Override
-	public void registrarDatosPruebas(String nombreProducto) {
-		if (nombreProducto == "MicroEmpresa") {
+	public void registrarDatosPruebas() {
+		
+		String nombreProducto = this.propiedades.getNombreproducto();
+			
+		if (nombreProducto.equals("Microempresa")) {
 			datosMicroEmpresa();
-		} else if (nombreProducto == "Personal") {
+		} else if (nombreProducto.equals("Personal")) {
 			datosPersonal();
 		}	
 	}
@@ -32,14 +45,14 @@ public class GeneradorDeDatosServiceBasic implements GeneradorDeDatosService {
 		Factura factura3 = new Factura("3", new Date(), 300000, "venta", 30000, "efectivo", 30000);
 		Factura factura4 = new Factura("4", new Date(), 400000, "venta", 40000, "tarjeta", 40000);
 		Factura factura5 = new Factura("5", new Date(), 500000, "compra", 50000, "tarjeta", 50000);
-		Factura factura6 = new Factura("6", new Date(), 600000, "venta", 60000, "tarjeta", 60000);
+		Factura factura6 = new Factura("6", new Date(), 60000000, "venta", 60000, "tarjeta", 60000);
 		
-		this.baseDeDatos.getFacturas().add(factura1);
-		this.baseDeDatos.getFacturas().add(factura2);
-		this.baseDeDatos.getFacturas().add(factura3);
-		this.baseDeDatos.getFacturas().add(factura4);
-		this.baseDeDatos.getFacturas().add(factura5);
-		this.baseDeDatos.getFacturas().add(factura6);
+		this.facturaService.registrarCompraCosto(factura1, "desc1");
+		this.facturaService.registrarCompraCosto(factura2, "desc2");
+		this.facturaService.registrarVenta(factura3, "desc3");
+		this.facturaService.registrarVenta(factura4, "desc4");
+		this.facturaService.registrarCompraGasto(factura5, "desc5");
+		this.facturaService.registrarVenta(factura6, "desc6");
 	}
 
 	private void datosPersonal() {
@@ -56,6 +69,13 @@ public class GeneradorDeDatosServiceBasic implements GeneradorDeDatosService {
 		this.baseDeDatos.getRegistrosCuenta().add(registroCuenta4);
 		this.baseDeDatos.getRegistrosCuenta().add(registroCuenta5);
 		this.baseDeDatos.getRegistrosCuenta().add(registroCuenta6);
+		
+		this.registroContableService.registrarActivo(registroCuenta1, "nombre1");
+		this.registroContableService.registrarActivo(registroCuenta2, "nombre2");
+		this.registroContableService.registrarActivo(registroCuenta3, "nombre3");
+		this.registroContableService.registrarPasivo(registroCuenta4, "nombre4");
+		this.registroContableService.registrarPasivo(registroCuenta5, "nombre5");
+		this.registroContableService.registrarPasivo(registroCuenta6, "nombre6");
 	}
 	
 }

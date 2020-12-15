@@ -9,16 +9,14 @@ import com.example.demo.service.GeneradorDeDatosService;
 public class RegistrationComponent implements CommandLineRunner {
 
 	GeneradorDeDatosService generadorDeDatosService;
-	
-	private String nombreProducto = "MicroEmpresa"; // "Personal"; // // depende del producto que se esta configurando
-
+		
 	public RegistrationComponent(GeneradorDeDatosService generadorDeDatosService) {
 		this.generadorDeDatosService = generadorDeDatosService;
 	}
 	
 	@Override
 	public void run(@SuppressWarnings("unused") String... args) throws Exception {
-		generadorDeDatosService.registrarDatosPruebas(nombreProducto);
+		generadorDeDatosService.registrarDatosPruebas();
 	}
 	
 }
