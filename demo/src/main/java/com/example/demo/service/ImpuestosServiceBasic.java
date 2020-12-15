@@ -6,7 +6,6 @@ import java.util.Date;
 import com.example.demo.bean.BaseDeDatos;
 import com.example.demo.bean.DeclaracionDeRenta;
 import com.example.demo.bean.Factura;
-import com.example.demo.bean.RegistroContable;
 import com.example.demo.bean.RegistroCuenta;
 
 import org.springframework.stereotype.Service;
